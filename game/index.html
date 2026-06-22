@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Hollowmark — Enter the Hollowmark</title>
+  <meta name="description" content="Risk what you carry. Extract what you earn. A browser onchain extraction roguelite." />
+  <link rel="icon" href="/favicon.png" />
+</head>
+<body class="game-body">
+  <canvas id="game"></canvas>
+
+  <!-- top bar -->
+  <header id="topbar">
+    <span id="brand" class="h-serif">Hollowmark</span>
+    <span class="top-actions">
+      <button id="muteBtn" class="rbtn rbtn-dark" aria-label="Toggle sound">♪ ON</button>
+      <button id="faucetBtn" class="rbtn rbtn-dark" hidden>◎ GET SOL</button>
+      <button id="walletBtn" class="rbtn rbtn-dark" data-state="off">CONNECT WALLET</button>
+    </span>
+  </header>
+
+  <!-- mobile controls -->
+  <div id="controls" aria-hidden="true">
+    <div id="joystick"><div id="joystickKnob"></div><span class="ctl-cap">MOVE</span></div>
+    <div id="actionPad">
+      <button id="dashBtn" aria-label="Dash"><span class="ctl-glyph">»</span><span class="ctl-lbl">DASH</span></button>
+      <button id="skillBtn" aria-label="Skill"><span class="ctl-glyph">✦</span><span class="ctl-lbl">SKILL</span></button>
+      <button id="attackBtn" aria-label="Attack"><span class="ctl-glyph">⚔</span><span class="ctl-lbl">ATTACK</span></button>
+    </div>
+  </div>
+
+  <!-- portrait lock: Hollowmark plays in landscape -->
+  <div id="rotateOverlay" aria-hidden="true">
+    <div class="rotate-inner">
+      <div class="rotate-phone"><span class="rotate-arrow">⟳</span></div>
+      <h2 class="h-serif">Rotate your device</h2>
+      <p class="t-mono t-dim">Hollowmark is played in landscape.<br/>Turn your phone sideways to descend.</p>
+    </div>
+  </div>
+
+  <!-- class select / boot -->
+  <div id="selectOverlay" class="overlay">
+    <div class="panel">
+      <img class="logo" src="/assets/generated/ui/logo_hollowmark.png" alt="Hollowmark" />
+      <h1 class="h-serif">Enter the Hollowmark</h1>
+      <p class="kick t-mono t-dim">RISK WHAT YOU CARRY · EXTRACT WHAT YOU EARN</p>
+
+      <!-- wallet gate: connect first, right here in the popup -->
+      <div id="selectWallet" class="select-wallet"></div>
+
+      <div id="classGrid"></div>
+
+      <!-- personal records (local leaderboard) + banked $OBOL -->
+      <div id="records" class="records t-mono"></div>
+
+      <!-- The Outfitter — spend banked $OBOL on next-run boons (flywheel sink) -->
+      <details id="outfitter" class="outfitter">
+        <summary><span>⚒ THE OUTFITTER</span><span class="t-dim">spend $OBOL on your next descent</span></summary>
+        <div id="shop" class="shop"></div>
+      </details>
+
+      <div id="bootProgress" hidden><div id="bootBar"></div></div>
+      <button id="enterBtn" class="rbtn rbtn-gold-frame big" hidden>⚔ ENTER THE HOLLOWMARK</button>
+      <p id="selectHint" class="t-mono t-teal"></p>
+      <p class="entrycost t-mono">⛓ Entry: <b>0.01 devnet ◎</b> — 0.005 burned to the Grave · 0.005 staked (returned if you extract, lost if you die)</p>
+      <p class="foothint t-mono t-dim">Connect a wallet to enter · need devnet SOL? tap <b>◎ GET SOL</b> · WASD move · SPACE strike · Q skill · SHIFT dash</p>
+    </div>
+  </div>
+
+  <!-- results -->
+  <div id="resultsOverlay" class="overlay" hidden>
+    <div class="panel">
+      <h2 id="resTitle" class="h-serif"></h2>
+      <p id="resBody"></p>
+      <div id="resStats" class="stats"></div>
+      <a id="resTx" class="t-mono t-teal" target="_blank" rel="noopener" hidden>view entry/extract tx ↗</a>
+      <button id="againBtn" class="rbtn rbtn-gold-frame big">RETURN TO TOWN</button>
+    </div>
+  </div>
+
+  <!-- run HUD: coin counter (#7) -->
+  <div id="coinHud" hidden>
+    <img src="/assets/generated/ui/obol_coin_icon.png" alt="$OBOL" />
+    <span id="coinNow">0</span>
+    <span id="coinBanked"></span>
+  </div>
+
+  <!-- desktop keycap legend (#6) — square keycaps with press feedback -->
+  <div id="keycaps" hidden>
+    <div class="kc-group">
+      <div class="kc-cluster">
+        <span class="kc" data-k="w">W</span>
+        <span class="kc" data-k="a">A</span>
+        <span class="kc" data-k="s">S</span>
+        <span class="kc" data-k="d">D</span>
+      </div>
+      <span class="kc-cap">MOVE</span>
+    </div>
+    <div class="kc-group"><span class="kc kc-w" data-k=" ">SPACE</span><span class="kc-cap">STRIKE</span></div>
+    <div class="kc-group"><span class="kc" data-k="q">Q</span><span class="kc-cap">SKILL</span></div>
+    <div class="kc-group"><span class="kc kc-w" data-k="shift">SHIFT</span><span class="kc-cap">DASH</span></div>
+  </div>
+
+  <div id="toast" hidden></div>
+
+  <script type="module" src="/src/game/main.ts"></script>
+</body>
+</html>

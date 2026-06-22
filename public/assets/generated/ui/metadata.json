@@ -1,0 +1,72 @@
+{
+  "logo_hollowmark": {
+    "object_id": "9e1db753-ec56-442a-909b-f53c0fc466b6",
+    "url": "https://api.pixellab.ai/mcp/map-objects/9e1db753-ec56-442a-909b-f53c0fc466b6/download",
+    "size_bytes": 27122
+  },
+  "currency_hud_icon": {
+    "object_id": "f3240405-0e1b-4826-84fd-2c249fde640b",
+    "url": "https://api.pixellab.ai/mcp/map-objects/f3240405-0e1b-4826-84fd-2c249fde640b/download",
+    "size_bytes": 1386
+  },
+  "panel_frame": {
+    "object_id": "e6adf1c2-7118-4307-bc71-78df7d9f9e57",
+    "url": "https://api.pixellab.ai/mcp/map-objects/e6adf1c2-7118-4307-bc71-78df7d9f9e57/download",
+    "size_bytes": 17915
+  },
+  "bar_frame_hp": {
+    "object_id": "ef30193c-1a49-4581-b05c-791c1cafd418",
+    "url": "https://api.pixellab.ai/mcp/map-objects/ef30193c-1a49-4581-b05c-791c1cafd418/download",
+    "size_bytes": 5871
+  },
+  "control_move": {
+    "object_id": "20b98903-fafb-46e6-bcd9-808fe039ca59",
+    "url": "https://api.pixellab.ai/mcp/map-objects/20b98903-fafb-46e6-bcd9-808fe039ca59/download",
+    "size_bytes": 496
+  },
+  "control_attack": {
+    "object_id": "febbd000-5ea6-4f36-b2e0-da86ac91ae80",
+    "url": "https://api.pixellab.ai/mcp/map-objects/febbd000-5ea6-4f36-b2e0-da86ac91ae80/download",
+    "size_bytes": 3631
+  },
+  "control_skill": {
+    "object_id": "76050cfa-63e3-49fa-8b75-3fdf6b5b3c3a",
+    "url": "https://api.pixellab.ai/mcp/map-objects/76050cfa-63e3-49fa-8b75-3fdf6b5b3c3a/download",
+    "size_bytes": 2274
+  },
+  "control_dash": {
+    "object_id": "6b39b32f-6880-4423-bbef-be416f884640",
+    "url": "https://api.pixellab.ai/mcp/map-objects/6b39b32f-6880-4423-bbef-be416f884640/download",
+    "size_bytes": 1136
+  },
+  "emblem_knight": {
+    "object_id": "36c3cfc1-98de-41c3-a686-ef7982d0d165",
+    "url": "https://api.pixellab.ai/mcp/map-objects/36c3cfc1-98de-41c3-a686-ef7982d0d165/download",
+    "size_bytes": 1850
+  },
+  "emblem_archer": {
+    "object_id": "f2b8e4f8-b486-4f61-97f8-ee66d9308240",
+    "url": "https://api.pixellab.ai/mcp/map-objects/f2b8e4f8-b486-4f61-97f8-ee66d9308240/download",
+    "size_bytes": 2717
+  },
+  "emblem_mage": {
+    "object_id": "afaa107f-d847-4d69-aeaf-81f977a91216",
+    "url": "https://api.pixellab.ai/mcp/map-objects/afaa107f-d847-4d69-aeaf-81f977a91216/download",
+    "size_bytes": 1194
+  },
+  "emblem_assassin": {
+    "object_id": "6e8b43e7-f02d-4785-8c1c-77ed8453aa3e",
+    "url": "https://api.pixellab.ai/mcp/map-objects/6e8b43e7-f02d-4785-8c1c-77ed8453aa3e/download",
+    "size_bytes": 1773
+  },
+  "portal_extract": {
+    "object_id": "7c424f98-bd87-46b1-a574-8a95a165a0d9",
+    "url": "https://api.pixellab.ai/mcp/map-objects/7c424f98-bd87-46b1-a574-8a95a165a0d9/download",
+    "size_bytes": 2770
+  },
+  "portal_descend": {
+    "object_id": "92622965-3d50-431e-ab8c-b198a47aef9c",
+    "url": "https://api.pixellab.ai/mcp/map-objects/92622965-3d50-431e-ab8c-b198a47aef9c/download",
+    "size_bytes": 1898
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "hollowmark",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.4",
+    "buffer": "^6.0.3"
+  }
+}

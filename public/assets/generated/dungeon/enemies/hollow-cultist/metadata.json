@@ -1,0 +1,33 @@
+{
+  "character_id": "029cd966-210a-47e9-a4b8-2799663c7b16",
+  "name": "Hollow Cultist",
+  "size": "68x68px",
+  "rotations": [
+    "south",
+    "east",
+    "north",
+    "west"
+  ],
+  "animations": {
+    "casting": [
+      "south"
+    ],
+    "walking": [
+      "east",
+      "south",
+      "north",
+      "west"
+    ]
+  },
+  "anim_ids": {
+    "casting": {
+      "south": "87d53734-8a24-45ac-8318-89ac01fdd110"
+    },
+    "walking": {
+      "east": "4dac3aca-2038-4a7a-9a5b-964bec8126c8",
+      "south": "5486caea-edb8-44d5-9c54-0b0e99866b20",
+      "north": "f01d91f9-11fd-4017-b4a9-281fc736eee1",
+      "west": "b0bb772b-ba22-427a-969d-652c6848e214"
+    }
+  }
+}

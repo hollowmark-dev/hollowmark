@@ -1,0 +1,67 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "db09b021-c59a-45f2-923e-ef48c598b8ff",
+        "name": "Bone Skeleton",
+        "prompt": "bone-white skeleton warrior, pale ivory bones, glowing teal eye sockets, holding a rusted sword, grim dark fantasy",
+        "size": {
+          "width": 68,
+          "height": 68
+        },
+        "template_id": "mannequin",
+        "directions": 4,
+        "view": "low top-down",
+        "created_at": "2026-06-20T19:41:23.257435+00:00"
+      },
+      "folder": "Bone_Skeleton",
+      "frames": {
+        "rotations": {
+          "south": "Bone_Skeleton/rotations/south.png",
+          "west": "Bone_Skeleton/rotations/west.png",
+          "east": "Bone_Skeleton/rotations/east.png",
+          "north": "Bone_Skeleton/rotations/north.png"
+        },
+        "animations": {
+          "walking": {
+            "east": [
+              "Bone_Skeleton/animations/walking/east/frame_000.png",
+              "Bone_Skeleton/animations/walking/east/frame_001.png",
+              "Bone_Skeleton/animations/walking/east/frame_002.png",
+              "Bone_Skeleton/animations/walking/east/frame_003.png",
+              "Bone_Skeleton/animations/walking/east/frame_004.png",
+              "Bone_Skeleton/animations/walking/east/frame_005.png"
+            ],
+            "west": [
+              "Bone_Skeleton/animations/walking/west/frame_000.png",
+              "Bone_Skeleton/animations/walking/west/frame_001.png",
+              "Bone_Skeleton/animations/walking/west/frame_002.png",
+              "Bone_Skeleton/animations/walking/west/frame_003.png",
+              "Bone_Skeleton/animations/walking/west/frame_004.png",
+              "Bone_Skeleton/animations/walking/west/frame_005.png"
+            ],
+            "north": [
+              "Bone_Skeleton/animations/walking/north/frame_000.png",
+              "Bone_Skeleton/animations/walking/north/frame_001.png",
+              "Bone_Skeleton/animations/walking/north/frame_002.png",
+              "Bone_Skeleton/animations/walking/north/frame_003.png",
+              "Bone_Skeleton/animations/walking/north/frame_004.png",
+              "Bone_Skeleton/animations/walking/north/frame_005.png"
+            ],
+            "south": [
+              "Bone_Skeleton/animations/walking/south/frame_000.png",
+              "Bone_Skeleton/animations/walking/south/frame_001.png",
+              "Bone_Skeleton/animations/walking/south/frame_002.png",
+              "Bone_Skeleton/animations/walking/south/frame_003.png",
+              "Bone_Skeleton/animations/walking/south/frame_004.png",
+              "Bone_Skeleton/animations/walking/south/frame_005.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-20T20:00:30.951932"
+}

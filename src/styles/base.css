@@ -1,0 +1,128 @@
+/* ============ Hollowmark — base design system (1:1 build) ============ */
+@font-face {
+  font-family: "Alagard";
+  src: url("/fonts/alagard.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pixel Operator";
+  src: url("/fonts/pixel-operator.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pixel Operator";
+  src: url("/fonts/pixel-operator-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pixel Operator Mono";
+  src: url("/fonts/pixel-operator-mono.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pixel Operator Mono";
+  src: url("/fonts/pixel-operator-mono-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --ink: #060a09;
+  --bg: #0a0d0c;
+  --bone: #ecdfc3;
+  --bone-dim: #b3a78c;
+  --gold: #d4aa55;
+  --gold-hi: #f0cf85;
+  --gold-dk: #8a6c2a;
+  --blood: #a23535;
+  --blood-hi: #d96a5a;
+  --moss: #7aa86a;
+  --teal: #6fd9c8;
+  --teal-dim: #2a8a7c;
+  --panel: rgba(9, 9, 9, 0.78);
+  --line-gold: rgba(212, 170, 85, 0.55);
+  --font-head: "Alagard", "Jacquard 12", serif;
+  --font-body: "Pixel Operator", monospace;
+  --font-mono: "Pixel Operator Mono", monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  min-width: 320px;
+  color: var(--bone);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  background: var(--bg);
+}
+img, canvas { image-rendering: pixelated; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+/* ---------- reference-style framed panel ---------- */
+.rpanel {
+  position: absolute;
+  background: var(--panel);
+  border: 1px solid var(--line-gold);
+  box-shadow:
+    inset 0 0 0 2px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 3px rgba(212, 170, 85, 0.28),
+    0 4px 14px rgba(0, 0, 0, 0.55);
+}
+.rpanel::before, .rpanel::after {
+  content: ""; position: absolute;
+  width: clamp(3px, 0.42cqw, 7px); height: clamp(3px, 0.42cqw, 7px);
+  border: 1px solid var(--gold);
+  background: var(--ink);
+}
+.rpanel::before { top: -3px; left: -3px; }
+.rpanel::after { top: -3px; right: -3px; }
+
+/* ---------- reference-style buttons (image frames from the asset pack) ---------- */
+.rbtn {
+  display: flex; align-items: center; justify-content: center; gap: 0.55em;
+  font-family: var(--font-mono); font-weight: 700;
+  color: var(--bone);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
+  transition: filter 0.12s steps(2), transform 0.12s steps(2);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  image-rendering: pixelated;
+}
+.rbtn:hover { filter: brightness(1.3); transform: translateY(-2px); }
+.rbtn:active { transform: translateY(1px); }
+.rbtn-red { background-image: url("/assets/generated/onetoone/crops/ui-btn-red-trim.png"); }
+.rbtn-slate { background-image: url("/assets/generated/onetoone/crops/ui-btn-blue-trim.png"); }
+.rbtn-green { background-image: url("/assets/generated/onetoone/crops/ui-btn-green-trim.png"); }
+.rbtn-dark,
+.rbtn-gold-frame { background-image: url("/assets/generated/onetoone/crops/ui-btn-frame-gold-trim.png"); color: var(--gold-hi); }
+
+/* ---------- type helpers ---------- */
+.h-serif { font-family: var(--font-head); font-weight: 400; line-height: 0.94; }
+.t-mono { font-family: var(--font-mono); }
+.t-gold { color: var(--gold-hi); }
+.t-red { color: var(--blood-hi); }
+.t-teal { color: var(--teal); }
+.t-dim { color: var(--bone-dim); }
+.t-shadow { text-shadow: 0.06em 0.06em 0 rgba(0, 0, 0, 0.85); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}

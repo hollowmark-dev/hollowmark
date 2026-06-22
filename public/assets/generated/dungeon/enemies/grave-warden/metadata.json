@@ -1,0 +1,67 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "7fd09edf-2ab0-4b12-9e7a-91d60f2125bc",
+        "name": "Grave Warden",
+        "prompt": "towering undead grave warden boss, massive cracked bone armor, glowing teal runes, wielding a huge rusted cleaver, menacing, grim dark fantasy",
+        "size": {
+          "width": 112,
+          "height": 112
+        },
+        "template_id": "mannequin",
+        "directions": 4,
+        "view": "low top-down",
+        "created_at": "2026-06-20T19:41:25.035879+00:00"
+      },
+      "folder": "Grave_Warden",
+      "frames": {
+        "rotations": {
+          "south": "Grave_Warden/rotations/south.png",
+          "west": "Grave_Warden/rotations/west.png",
+          "east": "Grave_Warden/rotations/east.png",
+          "north": "Grave_Warden/rotations/north.png"
+        },
+        "animations": {
+          "walking": {
+            "west": [
+              "Grave_Warden/animations/walking/west/frame_000.png",
+              "Grave_Warden/animations/walking/west/frame_001.png",
+              "Grave_Warden/animations/walking/west/frame_002.png",
+              "Grave_Warden/animations/walking/west/frame_003.png",
+              "Grave_Warden/animations/walking/west/frame_004.png",
+              "Grave_Warden/animations/walking/west/frame_005.png"
+            ],
+            "north": [
+              "Grave_Warden/animations/walking/north/frame_000.png",
+              "Grave_Warden/animations/walking/north/frame_001.png",
+              "Grave_Warden/animations/walking/north/frame_002.png",
+              "Grave_Warden/animations/walking/north/frame_003.png",
+              "Grave_Warden/animations/walking/north/frame_004.png",
+              "Grave_Warden/animations/walking/north/frame_005.png"
+            ],
+            "south": [
+              "Grave_Warden/animations/walking/south/frame_000.png",
+              "Grave_Warden/animations/walking/south/frame_001.png",
+              "Grave_Warden/animations/walking/south/frame_002.png",
+              "Grave_Warden/animations/walking/south/frame_003.png",
+              "Grave_Warden/animations/walking/south/frame_004.png",
+              "Grave_Warden/animations/walking/south/frame_005.png"
+            ],
+            "east": [
+              "Grave_Warden/animations/walking/east/frame_000.png",
+              "Grave_Warden/animations/walking/east/frame_001.png",
+              "Grave_Warden/animations/walking/east/frame_002.png",
+              "Grave_Warden/animations/walking/east/frame_003.png",
+              "Grave_Warden/animations/walking/east/frame_004.png",
+              "Grave_Warden/animations/walking/east/frame_005.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-20T19:56:54.472016"
+}

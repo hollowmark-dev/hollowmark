@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Editor & OS
+.DS_Store
+.idea/
+.vscode/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Local scratch
+tmp/
+
+# Internal design context (kept local, not part of the repo)
+PRODUCT.md
+
+# Asset-pipeline intermediates (generation only, not served)
+public/assets/sources/
+public/assets/sliced/
+public/assets/game-sprites/
+public/assets/generated/*-qa/
+public/assets/generated/asset-*.png
+public/assets/.assetgen-marker-*
+
+# Solana program build artifacts + devnet keypairs (never commit private keys)
+onchain/keys/
+onchain/**/target/
+**/*.so
+
+# Local tooling / agent config
+.claude/
+.hermes/
+
+# Heavy promo media — kept local, not in the code repo
+/gameplay.mp4
+/graveborn-teaser.mp4
+/graveborn-teaser.gif
+/graveborn-teaser-full.mp4
+/graveborn-teaser-full.gif

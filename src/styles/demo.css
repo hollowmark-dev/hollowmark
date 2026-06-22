@@ -1,0 +1,485 @@
+/* Hollowmark — town demo (1:1 build) */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; background: #07100e; }
+body { font-family: var(--font-body); color: var(--bone); }
+#game { position: fixed; inset: 0; width: 100%; height: 100%; display: block; cursor: crosshair; touch-action: none; }
+
+/* ---------- HUD ---------- */
+.hud { position: fixed; z-index: 20; }
+.hud-back {
+  top: 14px; left: 14px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.08em;
+  color: var(--bone);
+  background: rgba(6, 10, 9, 0.88);
+  border: 1px solid var(--line-gold);
+  padding: 0.55rem 0.9rem;
+}
+.hud-back:hover { color: var(--gold-hi); }
+.hud-beta {
+  top: 14px; right: 14px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.18em;
+  color: var(--gold-hi);
+  background: rgba(77, 15, 15, 0.92);
+  border: 1px solid var(--gold);
+  padding: 0.55rem 0.9rem;
+  animation: betaPulse 1.6s steps(2) infinite;
+}
+@keyframes betaPulse { 0%, 100% { background: rgba(77, 15, 15, 0.92); } 50% { background: rgba(125, 28, 28, 0.92); } }
+.hud-hint {
+  left: 50%; bottom: 86px; transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em;
+  color: var(--bone-dim); text-shadow: 1px 1px 0 var(--ink);
+  background: rgba(6, 10, 9, 0.72);
+  padding: 0.45rem 0.8rem;
+  transition: opacity 0.6s; pointer-events: none; white-space: nowrap;
+}
+.hud-hotbar { left: 50%; bottom: 8px; transform: translateX(-50%); width: min(420px, 76vw); opacity: 0.95; pointer-events: none; }
+
+/* ---------- touch controls (mobile only) ----------
+   Hidden by default; revealed once JS detects a coarse pointer (body.touch)
+   and the game has started (body.playing). Decorative hotbar steps aside. */
+.touch-controls { display: none; }
+body.touch.playing .touch-controls { display: block; }
+body.touch .hud-hotbar { display: none; }
+body.touch #game { cursor: default; }
+
+.joystick {
+  position: fixed; z-index: 30;
+  left: max(18px, env(safe-area-inset-left, 0px));
+  bottom: max(24px, env(safe-area-inset-bottom, 0px));
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(10, 16, 14, 0.62) 0%, rgba(6, 10, 9, 0.42) 70%, rgba(6, 10, 9, 0.18) 100%);
+  border: 1px solid var(--line-gold);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5), 0 4px 14px rgba(0, 0, 0, 0.45);
+  touch-action: none; -webkit-user-select: none; user-select: none;
+  display: grid; place-items: center;
+}
+.joystick-ring {
+  position: absolute; inset: 22px;
+  border-radius: 50%;
+  border: 1px dashed rgba(212, 170, 85, 0.35);
+}
+.joystick-knob {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, #f0cf85 0%, #d4aa55 42%, #7a5a1e 100%);
+  border: 1px solid rgba(20, 14, 2, 0.9);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.55), inset 0 1px 2px rgba(255, 240, 200, 0.5);
+  will-change: transform;
+  transition: transform 60ms linear;
+}
+.joystick.is-dragging .joystick-knob { transition: none; }
+
+.action-btn {
+  position: fixed; z-index: 30;
+  right: max(20px, env(safe-area-inset-right, 0px));
+  bottom: max(34px, env(safe-area-inset-bottom, 0px));
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  font-family: var(--font-mono); font-weight: 700; font-size: 1.7rem;
+  color: var(--bone-dim);
+  background: radial-gradient(circle at 50% 42%, rgba(28, 20, 8, 0.92) 0%, rgba(10, 14, 13, 0.92) 100%);
+  border: 2px solid rgba(212, 170, 85, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 0 var(--ink);
+  touch-action: none; -webkit-user-select: none; user-select: none;
+  transition: color 120ms steps(2), border-color 120ms steps(2), transform 120ms steps(2), box-shadow 120ms steps(2);
+}
+.action-btn:active { transform: scale(0.94); }
+.action-btn.is-active {
+  color: var(--gold-hi);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 0 rgba(240, 207, 133, 0.55), 0 4px 14px rgba(0, 0, 0, 0.5);
+  animation: actionPulse 1.1s ease-out infinite;
+}
+@keyframes actionPulse {
+  0% { box-shadow: 0 0 0 0 rgba(240, 207, 133, 0.5), 0 4px 14px rgba(0, 0, 0, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(240, 207, 133, 0), 0 4px 14px rgba(0, 0, 0, 0.5); }
+  100% { box-shadow: 0 0 0 0 rgba(240, 207, 133, 0), 0 4px 14px rgba(0, 0, 0, 0.5); }
+}
+@media (prefers-reduced-motion: reduce) { .action-btn.is-active { animation: none; } }
+
+/* ---------- overlays ---------- */
+.overlay {
+  position: fixed; inset: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(4, 8, 7, 0.88);
+  padding: 1rem;
+}
+.overlay[hidden] { display: none; }
+
+.select-box {
+  text-align: center; max-width: 720px; width: 100%;
+  background: rgba(10, 13, 12, 0.97);
+  border: 1px solid var(--gold);
+  box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.7), inset 0 0 0 4px rgba(212, 170, 85, 0.3), 0 10px 30px rgba(0, 0, 0, 0.6);
+  padding: 2.2rem 2rem 2.4rem;
+}
+.select-kicker { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--teal); }
+.select-box h1 {
+  font-family: var(--font-head); font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.4rem); color: var(--gold-hi);
+  text-shadow: 3px 3px 0 #1a1206; margin: 0.5rem 0 1.6rem;
+}
+.select-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.select-grid button {
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  background: #0c1212; border: 1px solid rgba(212, 170, 85, 0.4);
+  padding: 1rem 0.6rem 0.9rem;
+  transition: transform 0.15s steps(2), border-color 0.15s steps(2);
+}
+.select-grid button:hover { transform: translateY(-5px); border-color: var(--gold); }
+.select-grid b { font-family: var(--font-mono); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--gold-hi); }
+.sprite-idle {
+  width: 96px; aspect-ratio: 1;
+  background-size: 200% 100%; background-repeat: no-repeat;
+  image-rendering: pixelated;
+  animation: f2 1.1s steps(1) infinite;
+}
+.idle-knight { background-image: url("/assets/generated/demo/lp-hero-knight-idle.png"); }
+.idle-ranger { background-image: url("/assets/generated/demo/lp-hero-ranger-idle.png"); animation-delay: 0.25s; }
+.idle-hexer { background-image: url("/assets/generated/demo/lp-hero-hexer-idle.png"); animation-delay: 0.5s; }
+.idle-rogue { background-image: url("/assets/generated/demo/lp-hero-rogue-idle.png"); animation-delay: 0.75s; }
+@keyframes f2 { 0%, 100% { background-position: 0 0; } 50% { background-position: 100% 0; } }
+.select-progress { margin-top: 1.6rem; }
+.select-progress span { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.12em; color: var(--bone-dim); }
+.select-progress .bar { margin-top: 0.6rem; height: 16px; background: #0c1212; border: 1px solid rgba(212, 170, 85, 0.4); }
+.select-progress i {
+  display: block; height: 100%; width: 0;
+  background: repeating-linear-gradient(90deg, var(--teal) 0 8px, var(--teal-dim) 8px 16px);
+  transition: width 0.2s steps(4);
+}
+
+/* ---------- beta dialog ---------- */
+.overlay-dialog { z-index: 60; }
+/* explicit [hidden] overrides: HTML5 `hidden` is display:none but our flex/grid
+   rules beat it. Force non-display on any hidden element. */
+[hidden] { display: none !important; }
+
+.dialog {
+  position: relative;
+  width: min(720px, 94vw);
+  background: url("/assets/generated/demo/demo-ui-dialog-box.png") center / 100% 100% no-repeat;
+  /* The dialog-box art is 1672×941. The actual gold border sits at roughly
+     3.4%–96.6% horizontal and 15.8%–83.7% vertical. Skull ornaments push
+     the *practical* safe area to ~6%–94% × ~22%–78%.
+     For 720px width → ~405px image height. Safe content zone:
+       horizontal: 6% → 43px each side
+       vertical:   22% → 89px top, 78% → 89px bottom
+     Pad generously so the title/footer stay clear of the gold trim. */
+  padding: 6.75rem 2.5rem 5.25rem;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  filter: drop-shadow(0 14px 0 rgba(0, 0, 0, 0.45));
+  max-height: 92vh;
+  overflow-y: auto;
+  animation: dialogIn 320ms cubic-bezier(0.2, 0.85, 0.3, 1) both;
+}
+@keyframes dialogIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dialog { animation: none; }
+}
+
+/* close button — sits inside the dark panel, not on the gold trim */
+.dialog-close {
+  position: absolute;
+  top: 13%; right: 6.4%;
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 0.95rem;
+  color: var(--bone-dim);
+  background: rgba(6, 10, 9, 0.62);
+  border: 1px solid rgba(212, 170, 85, 0.35);
+  border-radius: 2px;
+  transition: color 120ms steps(2), border-color 120ms steps(2), background-color 120ms steps(2);
+}
+.dialog-close:hover { color: var(--blood-hi); border-color: var(--blood-hi); background: rgba(40, 6, 6, 0.78); }
+.dialog-close:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+.dialog-loc {
+  font-family: var(--font-mono); font-weight: 700;
+  font-size: 0.58rem; letter-spacing: 0.22em;
+  color: var(--teal);
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+}
+.dialog h2 {
+  font-family: var(--font-head); font-weight: 400;
+  font-size: clamp(1.45rem, 3.6vw, 1.95rem);
+  color: var(--gold-hi);
+  line-height: 0.96;
+  text-shadow: 2px 2px 0 #1a1206;
+  margin: 0 0 0.6rem;
+  text-wrap: balance;
+}
+.dialog-flavor {
+  font-size: clamp(0.94rem, 2.1vw, 1.04rem);
+  color: var(--bone);
+  max-width: 38ch;
+  line-height: 1.38;
+  margin: 0 0 0.35rem;
+  text-wrap: pretty;
+}
+.dialog-body {
+  font-size: clamp(0.86rem, 1.95vw, 0.94rem);
+  color: var(--bone-dim);
+  max-width: 42ch;
+  line-height: 1.45;
+  margin: 0 0 0.9rem;
+  text-wrap: pretty;
+}
+.dialog-body b { color: var(--blood-hi); font-weight: 700; }
+
+/* ---------- step cards (wallet + form) ---------- */
+.dialog-card {
+  width: 100%;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0.7rem 0.85rem 0.85rem;
+  margin-top: 0.25rem;
+  background: linear-gradient(180deg, rgba(7, 11, 10, 0.55) 0%, rgba(7, 11, 10, 0.78) 100%);
+  border: 1px solid rgba(212, 170, 85, 0.32);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.55);
+  position: relative;
+}
+.dialog-card-eyebrow {
+  font-family: var(--font-mono); font-weight: 700;
+  font-size: 0.56rem; letter-spacing: 0.22em;
+  color: var(--gold-hi);
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+}
+.dialog-card--form { margin-top: 0.55rem; }
+
+/* ---------- wallet button ---------- */
+.btn-wallet {
+  width: 100%;
+  max-width: 360px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+  font-family: var(--font-mono); font-weight: 700;
+  font-size: 0.74rem; letter-spacing: 0.08em;
+  color: var(--teal);
+  background: rgba(8, 14, 13, 0.92);
+  border: 1px solid var(--teal-dim);
+  padding: 0.7rem 0.9rem;
+  position: relative;
+  transition: color 140ms ease-out, border-color 140ms ease-out, background-color 140ms ease-out, transform 140ms ease-out;
+}
+.btn-wallet:hover { color: var(--bone); border-color: var(--teal); background: rgba(20, 36, 34, 0.95); }
+.btn-wallet:active { transform: translateY(1px); }
+.btn-wallet:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.btn-wallet:disabled { opacity: 0.65; cursor: not-allowed; }
+.btn-wallet-icon { display: inline-flex; align-items: center; }
+
+.btn-wallet-chain {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  margin-left: 0.45rem; padding-left: 0.55rem;
+  border-left: 1px solid currentColor;
+  font-size: 0.6rem; letter-spacing: 0.18em;
+  color: var(--teal);
+}
+.chain-dot {
+  display: inline-block; width: 7px; height: 7px;
+  background: #2151f5;
+  box-shadow: 0 0 6px rgba(33, 81, 245, 0.85);
+  border-radius: 50%;
+}
+.chain-dot.is-wrong {
+  background: var(--blood-hi);
+  box-shadow: 0 0 6px rgba(217, 106, 90, 0.7);
+}
+
+/* states */
+.btn-wallet[data-state="connecting"] {
+  color: var(--teal); border-color: var(--teal);
+  background: rgba(20, 36, 34, 0.95);
+  animation: walletPulse 1.1s ease-in-out infinite;
+}
+@keyframes walletPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(111, 217, 200, 0.4); }
+  50%      { box-shadow: 0 0 0 6px rgba(111, 217, 200, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-wallet[data-state="connecting"] { animation: none; }
+}
+.btn-wallet[data-state="connected"] {
+  color: var(--gold-hi); border-color: var(--gold);
+  background: linear-gradient(180deg, rgba(38, 26, 4, 0.85) 0%, rgba(20, 14, 2, 0.95) 100%);
+}
+.btn-wallet[data-state="connected"]:hover { background: linear-gradient(180deg, rgba(58, 40, 6, 0.9) 0%, rgba(28, 18, 2, 0.95) 100%); }
+.btn-wallet[data-state="wrong-chain"] {
+  color: var(--blood-hi); border-color: var(--blood-hi);
+  background: rgba(40, 6, 6, 0.85);
+}
+.btn-wallet[data-state="error"] {
+  color: var(--blood-hi); border-color: var(--blood-hi);
+}
+.btn-wallet[data-state="no-wallet"] {
+  color: var(--bone-dim); border-color: rgba(179, 167, 140, 0.45);
+  background: rgba(8, 14, 13, 0.85);
+}
+
+.btn-wallet-err {
+  margin: 0.6rem 0 0;
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.04em;
+  color: var(--blood-hi);
+  line-height: 1.4;
+  min-height: 1em;
+}
+
+/* ---------- form ---------- */
+.dialog-form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "input button"
+    "hint  hint";
+  column-gap: 0.55rem;
+  row-gap: 0.4rem;
+  align-items: center;
+}
+.dialog-input-wrap {
+  grid-area: input;
+  position: relative;
+  display: flex; align-items: center;
+}
+.dialog-form input {
+  width: 100%; min-width: 0;
+  font-family: var(--font-body); font-size: 0.96rem;
+  color: var(--bone);
+  background: #0a1010;
+  border: 1px solid rgba(212, 170, 85, 0.42);
+  min-height: 46px;
+  padding: 0.7rem 2.1rem 0.7rem 0.85rem;
+  outline: none;
+  transition: border-color 140ms ease-out, background-color 140ms ease-out, box-shadow 140ms ease-out;
+}
+.dialog-form input::placeholder { color: #7e7665; opacity: 1; }
+.dialog-form input:hover { border-color: rgba(212, 170, 85, 0.6); }
+.dialog-form input:focus { border-color: var(--teal); background: #0c1414; box-shadow: 0 0 0 2px rgba(111, 217, 200, 0.18); }
+.dialog-form input:focus-visible { outline: none; }
+.dialog-form input.is-bad {
+  border-color: var(--blood-hi);
+  animation: inputShake 360ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+@keyframes inputShake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-3px); }
+  40%, 60% { transform: translateX(3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dialog-form input.is-bad { animation: none; }
+}
+.dialog-form input.is-good { border-color: var(--gold); }
+.dialog-input-icon {
+  position: absolute; right: 0.7rem; top: 50%; transform: translateY(-50%);
+  width: 14px; height: 14px;
+  font-family: var(--font-mono); font-size: 0.7rem;
+  color: var(--gold);
+  display: none;
+  pointer-events: none;
+}
+.dialog-form input.is-good + .dialog-input-icon { display: block; }
+.dialog-form input.is-bad + .dialog-input-icon {
+  display: block;
+  color: var(--blood-hi);
+}
+
+.btn-join {
+  grid-area: button;
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  font-family: var(--font-mono); font-weight: 700;
+  font-size: 0.7rem; letter-spacing: 0.07em;
+  color: var(--bone);
+  background: linear-gradient(180deg, #7a2828 0%, #5e1f1f 55%, #441414 100%);
+  border: 1px solid var(--gold);
+  min-height: 46px;
+  padding: 0.7rem 1rem;
+  white-space: nowrap;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55);
+  transition: filter 140ms ease-out, transform 140ms ease-out, opacity 140ms ease-out;
+}
+.btn-join:hover:not(:disabled) { filter: brightness(1.18); transform: translateY(-1px); }
+.btn-join:active:not(:disabled) { transform: translateY(1px); }
+.btn-join:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+.btn-join:disabled { opacity: 0.55; cursor: not-allowed; transform: none; filter: saturate(0.6); }
+.btn-join[data-state="submitting"] { cursor: progress; }
+.btn-join[data-state="done"] {
+  background: linear-gradient(180deg, #2c5a2c 0%, #1f3f1f 100%);
+  color: var(--bone);
+}
+.btn-join-spinner {
+  width: 12px; height: 12px;
+  border: 1.5px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  display: none;
+  animation: spin 720ms linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .btn-join-spinner { animation: none; } }
+.btn-join[data-state="submitting"] .btn-join-spinner { display: inline-block; }
+.btn-join[data-state="submitting"] .btn-join-label { opacity: 0.7; }
+
+.dialog-form-hint {
+  grid-area: hint;
+  font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.06em;
+  color: #8b8473;
+  margin: 0;
+  text-align: center;
+  line-height: 1.4;
+}
+.dialog-form-hint.is-bad { color: var(--blood-hi); }
+.dialog-form-hint.is-good { color: var(--gold); }
+
+/* ---------- success + footer ---------- */
+.dialog-ok {
+  margin: 1.1rem 0 0.4rem;
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: var(--font-mono); font-weight: 700;
+  font-size: 0.74rem; letter-spacing: 0.1em;
+  color: var(--teal);
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  background: rgba(8, 24, 22, 0.85);
+  border: 1px solid var(--teal-dim);
+  animation: okIn 360ms cubic-bezier(0.2, 0.85, 0.3, 1) both;
+}
+.ok-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  background: var(--teal);
+  color: #06121a;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  flex: 0 0 auto;
+}
+@keyframes okIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .dialog-ok { animation: none; } }
+
+.dialog-foot {
+  margin: 0.55rem 0 0;
+  font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.18em;
+  color: #7e7665;
+  text-transform: uppercase;
+}
+/* Hide the foot — we removed the "Powered by Solana" footer to keep the dialog
+   inside the gold frame's safe area. The "Solana" branding lives on the wallet
+   button itself (chain badge) which is a stronger placement. */
+.dialog-foot { display: none; }
+
+@media (max-width: 640px) {
+  .select-grid { grid-template-columns: repeat(2, 1fr); }
+  .hud-hint { display: none; }
+  .dialog { padding: 4rem 1.5rem 3.5rem; }
+  .dialog-card { padding: 0.75rem 0.7rem 0.9rem; }
+  .dialog-form { grid-template-columns: 1fr; grid-template-areas: "input" "button" "hint"; row-gap: 0.5rem; }
+  .btn-join { width: 100%; }
+  .dialog-form-hint { text-align: left; }
+  .dialog-close { width: 32px; height: 32px; top: 11%; right: 5.4%; }
+}

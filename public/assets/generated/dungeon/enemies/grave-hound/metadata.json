@@ -1,0 +1,67 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "ecec92b0-97b4-4d14-835f-56aa820cee18",
+        "name": "Grave Hound",
+        "prompt": "skeletal undead grave hound, exposed rib bones, glowing teal eyes, wispy shadow fur, grim dark fantasy",
+        "size": {
+          "width": 68,
+          "height": 68
+        },
+        "template_id": "dog",
+        "directions": 4,
+        "view": "low top-down",
+        "created_at": "2026-06-20T19:41:27.958158+00:00"
+      },
+      "folder": "Grave_Hound",
+      "frames": {
+        "rotations": {
+          "south": "Grave_Hound/rotations/south.png",
+          "west": "Grave_Hound/rotations/west.png",
+          "east": "Grave_Hound/rotations/east.png",
+          "north": "Grave_Hound/rotations/north.png"
+        },
+        "animations": {
+          "walking": {
+            "west": [
+              "Grave_Hound/animations/walking/west/frame_000.png",
+              "Grave_Hound/animations/walking/west/frame_001.png",
+              "Grave_Hound/animations/walking/west/frame_002.png",
+              "Grave_Hound/animations/walking/west/frame_003.png",
+              "Grave_Hound/animations/walking/west/frame_004.png",
+              "Grave_Hound/animations/walking/west/frame_005.png"
+            ],
+            "east": [
+              "Grave_Hound/animations/walking/east/frame_000.png",
+              "Grave_Hound/animations/walking/east/frame_001.png",
+              "Grave_Hound/animations/walking/east/frame_002.png",
+              "Grave_Hound/animations/walking/east/frame_003.png",
+              "Grave_Hound/animations/walking/east/frame_004.png",
+              "Grave_Hound/animations/walking/east/frame_005.png"
+            ],
+            "north": [
+              "Grave_Hound/animations/walking/north/frame_000.png",
+              "Grave_Hound/animations/walking/north/frame_001.png",
+              "Grave_Hound/animations/walking/north/frame_002.png",
+              "Grave_Hound/animations/walking/north/frame_003.png",
+              "Grave_Hound/animations/walking/north/frame_004.png",
+              "Grave_Hound/animations/walking/north/frame_005.png"
+            ],
+            "south": [
+              "Grave_Hound/animations/walking/south/frame_000.png",
+              "Grave_Hound/animations/walking/south/frame_001.png",
+              "Grave_Hound/animations/walking/south/frame_002.png",
+              "Grave_Hound/animations/walking/south/frame_003.png",
+              "Grave_Hound/animations/walking/south/frame_004.png",
+              "Grave_Hound/animations/walking/south/frame_005.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-20T20:00:33.074225"
+}

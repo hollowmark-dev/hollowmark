@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="virtual-protocol-site-verification" content="a9aa6cb4b194fef6ee00ac6e8f6893ab" />
+    <meta
+      name="description"
+      content="Hollowmark — a browser-based onchain MMORPG roguelite. Risk what you carry. Extract what you earn."
+    />
+    <title>Hollowmark — Risk what you carry. Extract what you earn.</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hollowmark — Onchain MMORPG Roguelite" />
+    <meta property="og:description" content="Risk what you carry. Extract what you earn. Season Zero opens the Grave." />
+    <meta property="og:image" content="/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hollowmark" />
+    <meta name="twitter:description" content="Risk what you carry. Extract what you earn." />
+    <meta name="twitter:image" content="/og.png" />
+    <script type="module" src="/src/landing/main.ts"></script>
+  </head>
+  <body>
+    <header class="nav" id="nav">
+      <a class="nav-logo" href="#s01"><img src="/assets/generated/ui/logo_hollowmark.png" alt="Hollowmark" /></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#s02">GAME</a><span>◆</span>
+        <a href="#s05">GUILDS</a><span>◆</span>
+        <a href="#s07">LORE</a><span>◆</span>
+        <a href="#s08">SEASON ZERO</a><span>◆</span>
+        <a href="#updates">NEWS</a>
+      </nav>
+      <div class="nav-socials">
+        <a href="#" aria-label="Website">⊕</a>
+        <a href="#" aria-label="Discord">D</a>
+        <a href="#" aria-label="X">X</a>
+      </div>
+      <a class="rbtn rbtn-gold-frame nav-cta" href="/game/">PLAY NOW</a>
+    </header>
+
+    <main>
+      <!-- ================= S01 · HERO ================= -->
+      <section class="stage" id="s01" aria-label="Hollowmark — hero">
+        <img class="stage-bg" src="/assets/generated/onetoone/bg-01-hero.png" alt="Pixel-art heroes before a cursed dungeon gate glowing spectral teal" />
+        <canvas class="embers" id="embers"></canvas>
+
+        <h1 class="ov h-serif hero-title t-shadow2" style="--x:3.9; --y:58.6; --w:46" data-reveal>Hollowmark</h1>
+        <img class="ov" style="--x:3.9; --y:73.6; --w:41.8" src="/assets/generated/onetoone/crops/ui-divider-skull-trim.png" alt="" data-reveal />
+        <p class="ov hero-tag" style="--x:4.1; --y:79.9; --w:45" data-reveal>Risk what you carry. Extract what you earn.</p>
+        <a class="ov ov-h rbtn rbtn-red" style="--x:3.9; --y:84.3; --w:19.5; --h:8.6" href="/game/" data-reveal>🗡 Enter Dungeon</a>
+        <a class="ov ov-h rbtn rbtn-slate" style="--x:25.5; --y:84.3; --w:19.5; --h:8.6" href="#s08" data-reveal>⛨ Join Season Zero</a>
+        <a class="cue" href="#s02" aria-label="Scroll">▼</a>
+        <img class="align-ref" loading="lazy" src="/assets/sections/section-01-hero-portal.png" alt="" />
+      </section>
+
+      <!-- ================= S02 · CHOOSE YOUR PATH ================= -->
+      <section class="stage" id="s02" aria-label="Choose your path">
+        <img class="stage-bg" src="/assets/generated/onetoone/bg-02-armory.png" alt="Candle-lit armory interior" />
+
+        <p class="ov kicker" style="--x:3.7; --y:15.6; --w:30" data-reveal>⟡ CHOOSE YOUR PATH ⟡</p>
+        <h2 class="ov h-serif big t-shadow" style="--x:3.6; --y:19.8; --w:26" data-reveal>Choose<br />Your Path</h2>
+        <p class="ov body-copy" style="--x:3.8; --y:43.5; --w:26; font-size:1.24cqw" data-reveal>
+          Four paths through the cursed world. Master your skills, risk your gear, and carve your legend.
+        </p>
+
+        <div class="ov stat" style="--x:2.4; --y:52.4; --w:6" data-reveal><img src="/assets/generated/onetoone/crops/el02-icon-fight.png" alt="" /><b><span class="t-red">FIGHT</span><br />DUNGEONS</b></div>
+        <div class="ov stat" style="--x:8.3; --y:52.4; --w:6" data-reveal><img src="/assets/generated/onetoone/crops/el02-icon-risk.png" alt="" /><b><span class="t-red">RISK</span><br />EQUIPMENT</b></div>
+        <div class="ov stat" style="--x:14.2; --y:52.4; --w:6.4" data-reveal><img src="/assets/generated/onetoone/crops/el02-icon-extract.png" alt="" /><b><span class="t-gold">EXTRACT</span><br />RELICS</b></div>
+        <div class="ov stat" style="--x:20.8; --y:52.4; --w:6" data-reveal><img src="/assets/generated/onetoone/crops/el02-icon-legacy.png" alt="" /><b><span style="color:#6fa8d9">BUILD</span><br />LEGACY</b></div>
+
+        <img class="ov" style="--x:2.2; --y:66.4; --w:24.6" src="/assets/generated/onetoone/crops/el02-tabbar.png" alt="Class filter tabs" data-reveal />
+        <div class="ov rpanel pathnote" style="--x:2.3; --y:76.2; --w:24.5" data-reveal>
+          <p>Each path plays different.<br />All paths lead to glory.</p>
+          <span>»</span>
+        </div>
+
+        <img class="ov card hover-rise" style="--x:29.8; --y:29.3; --w:16.7" src="/assets/generated/onetoone/crops/el02-card-knight.png" alt="Knight class card" data-class="Knight" data-reveal />
+        <img class="ov card hover-rise" style="--x:46.4; --y:27.6; --w:15.9" src="/assets/generated/onetoone/crops/el02-card-ranger.png" alt="Ranger class card" data-class="Ranger" data-reveal />
+        <img class="ov card hover-rise" style="--x:61.8; --y:28.7; --w:15.6" src="/assets/generated/onetoone/crops/el02-card-hexer.png" alt="Hexer class card" data-class="Hexer" data-reveal />
+        <img class="ov card hover-rise" style="--x:76.9; --y:30.4; --w:16.5" src="/assets/generated/onetoone/crops/el02-card-rogue.png" alt="Merchant-Rogue class card" data-class="Merchant-Rogue" data-reveal />
+
+        <div class="ov ov-h botline" style="--x:2; --y:89.6; --w:96; --h:9.2" data-reveal></div>
+        <div class="ov strip-cell" style="--x:12.5; --y:90.7; --w:14" data-reveal><span class="sheet-icon sheet-icon--s02" style="--pos:0%" aria-hidden="true"></span><span><b>GEAR IS</b><p>AT RISK</p></span></div>
+        <div class="ov strip-cell" style="--x:32.5; --y:90.7; --w:14" data-reveal><span class="sheet-icon sheet-icon--s02" style="--pos:33.333%" aria-hidden="true"></span><span><b>DEATH HAS</b><p>A COST</p></span></div>
+        <div class="ov strip-cell" style="--x:52.5; --y:90.7; --w:14" data-reveal><span class="sheet-icon sheet-icon--s02" style="--pos:66.667%" aria-hidden="true"></span><span><b>LOOT IS</b><p>YOURS TO KEEP</p></span></div>
+        <div class="ov strip-cell" style="--x:72.5; --y:90.7; --w:15" data-reveal><span class="sheet-icon sheet-icon--s02" style="--pos:100%" aria-hidden="true"></span><span><b>YOUR GUILD</b><p>IS YOUR POWER</p></span></div>
+        <img class="align-ref" loading="lazy" src="/assets/sections/section-02-choose-path.png" alt="" />
+      </section>
+
+      <!-- ================= S03 · DUNGEON RUNS ================= -->
+      <!-- Plate = reference mockup with nav + right-rail text erased; rooms, plates,
+           route arrows and step strip stay baked (pixel-exact). Right rail is HTML. -->
+      <section class="stage" id="s03" aria-label="Dungeon runs">
+        <img class="stage-bg" src="/assets/generated/onetoone/bg-03-cavern-fixed.png" alt="Six dungeon rooms carved in dark stone, joined by a glowing route" />
+
+        <img class="ov" style="--x:73.1; --y:17.0; --w:22.0" src="/assets/generated/onetoone/crops/ui-divider-skull-trim.png" alt="" data-reveal />
+        <h2 class="ov h-serif big" style="--x:71.8; --y:22.2; --w:25.2" data-reveal>D<span style="font-size:.8em">UNGEON</span><br />R<span style="font-size:.8em">UNS</span></h2>
+        <img class="ov" style="--x:73.1; --y:44.6; --w:22.0" src="/assets/generated/onetoone/crops/ui-divider-skull-trim.png" alt="" data-reveal />
+        <p class="ov mid" style="--x:72.6; --y:50.6; --w:23" data-reveal>Minted only if you<br />make it out alive.</p>
+
+        <div class="ov rpanel" style="--x:73.2; --y:64.8; --w:23.2" data-reveal>
+          <div class="info-row"><span class="sheet-icon sheet-icon--s03" style="--pos:0%" aria-hidden="true"></span><span>High Risk, High Reward</span></div>
+          <div class="info-row"><span class="sheet-icon sheet-icon--s03" style="--pos:33.333%" aria-hidden="true"></span><span>Roguelite Runs</span></div>
+          <div class="info-row"><span class="sheet-icon sheet-icon--s03" style="--pos:66.667%" aria-hidden="true"></span><span>Loot is earned, not given</span></div>
+          <div class="info-row"><span class="sheet-icon sheet-icon--s03" style="--pos:100%" aria-hidden="true"></span><span>You keep what you extract</span></div>
+        </div>
+        <img class="align-ref" loading="lazy" src="/assets/sections/section-03-dungeon-runs.png" alt="" />
+      </section>
+
+      <!-- ================= S04 · GRAVE POOL ================= -->
+      <section class="stage" id="s04" aria-label="Risk-to-earn grave pool">
+        <img class="stage-bg" src="/assets/generated/onetoone/bg-04-gravepool.png" alt="A spectral grave pool fed by the souls of fallen adventurers" />
+        <div class="scrim" aria-hidden="true"></div>
+
+        <p class="ov kicker red" style="--x:3.7; --y:13.2; --w:30" data-reveal>⟡ RISK-TO-EARN SYSTEM ⟡</p>
+        <h2 class="ov h-serif big t-shadow" style="--x:3.5; --y:17.4; --w:30" data-reveal>Risk-to-Earn<br /><span class="l2">Grave Pool</span></h2>
+        <img class="ov" style="--x:3.7; --y:33.0; --w:12" src="/assets/generated/onetoone/crops/ui-divider-skull-trim.png" alt="" data-reveal />
+        <p class="ov sub t-shadow" style="--x:3.6; --y:36.4; --w:34; white-space:nowrap; font-size:1.9cqw" data-reveal>Every death feeds the dungeon.</p>
+        <p class="ov body-copy" style="--x:3.8; --y:41.2; --w:26.5; font-size:1.12cqw; line-height:1.42" data-reveal>
+          When you fall, your gear faces the death tax. Valuable remains are carried to the <span class="t-gold">Grave</span> Pool.
+          Survive, and claim what others could not keep.
+        </p>
+        <p class="ov kicker red" style="--x:3.7; --y:50.4; --w:30" data-reveal>⟡ SYSTEM MECHANICS ⟡</p>
+
+        <div class="ov mrow frow" style="--x:3.0; --y:53.4; --w:25.4" data-reveal>
+          <img src="/assets/generated/onetoone/el-04-icon-ticket-trim.png" alt="" />
+          <span><b class="t-gold">ENTRY TICKETS</b><p>Spend tickets to enter cursed dungeons. No ticket, no run.</p></span>
+          <span class="plus">+</span>
+        </div>
+        <div class="ov mrow frow" style="--x:3.0; --y:61.5; --w:25.4" data-reveal>
+          <img src="/assets/generated/onetoone/el-04-icon-skull-trim.png" alt="" />
+          <span><b class="t-red">DEATH TAX</b><p>A cut of your gear is lost to the dungeon when you die.</p></span>
+          <span class="plus">+</span>
+        </div>
+        <div class="ov mrow frow" style="--x:3.0; --y:69.6; --w:25.4" data-reveal>
+          <img src="/assets/generated/onetoone/el-04-icon-wisp-trim.png" alt="" />
+          <span><b class="t-teal">GRAVE LOOT POOL</b><p>Lost gear flows into the tomb vault. High risk, high reward.</p></span>
+          <span class="plus">+</span>
+        </div>
+        <div class="ov mrow frow" style="--x:3.0; --y:77.7; --w:25.4" data-reveal>
+          <img src="/assets/generated/onetoone/el-04-icon-anvil-trim.png" alt="" />
+          <span><b style="color:#cfc7e8">CRAFTING SINKS</b><p>Repair, forge, and upgrade. Power comes at a cost.</p></span>
+          <span class="plus">+</span>
+        </div>
+
+        <div class="ov ov-h rpanel" style="--x:2.6; --y:85.6; --w:94.8; --h:10.2" data-reveal></div>
+        <div class="ov strip-cell" style="--x:4.4; --y:86.9; --w:15.5" data-reveal><img src="/assets/generated/onetoone/crops/el04-flow-1.png" alt="" /><span><b class="t-gold">ENTRY TICKET</b><p>You risk gear to enter.</p></span></div>
+        <span class="ov strip-arrow" style="--x:20.8; --y:89.1; --w:3">➜</span>
+        <div class="ov strip-cell" style="--x:24.3; --y:86.9; --w:14.5" data-reveal><img src="/assets/generated/onetoone/crops/el04-flow-2.png" alt="" /><span><b class="t-red">YOU DIE</b><p>Pay the death tax.</p></span></div>
+        <span class="ov strip-arrow" style="--x:38.6; --y:89.1; --w:3">➜</span>
+        <div class="ov strip-cell" style="--x:41.0; --y:86.9; --w:15" data-reveal><img src="/assets/generated/onetoone/crops/el04-flow-3.png" alt="" /><span><b class="t-teal">GEAR LOST</b><p>Valuables are sent to the pool.</p></span></div>
+        <span class="ov strip-arrow" style="--x:55.4; --y:89.1; --w:3">➜</span>
+        <div class="ov strip-cell" style="--x:57.8; --y:86.9; --w:16" data-reveal><img src="/assets/generated/onetoone/crops/el04-flow-4.png" alt="" /><span><b style="color:#a8c89a">GRAVE LOOT POOL</b><p>Others can find and extract.</p></span></div>
+        <span class="ov strip-arrow" style="--x:75.3; --y:89.1; --w:3">➜</span>
+        <div class="ov strip-cell" style="--x:78.2; --y:86.9; --w:17" data-reveal><img src="/assets/generated/onetoone/crops/el04-flow-5.png" alt="" /><span><b style="color:#cfc7e8">CRAFT &amp; UPGRADE</b><p>Use sinks to evolve and survive.</p></span></div>
+        <img class="align-ref" loading="lazy" src="/assets/sections/section-04-grave-pool.png" alt="" />
+      </section>
+
+      <!-- ================= S05 · GUILDS, TERRITORY & POLITICS ================= -->
+      <section class="stage" id="s05" aria-label="Guilds, territory and politics">
+        <img class="stage-bg" src="/assets/generated/onetoone/bg-05-warroom.png" alt="Faction map of the realm on a war table" />
+
+        <img class="ov pin" style="--x:2.9; --y:11.9; --w:16.0" src="/assets/generated/onetoone/crops/el05-legend.png" alt="Faction legend — Iron Oath, Crimson Reach, Wildroot, Silver Veil, Contested" data-reveal />
+
+        <img class="ov pin" style="--x:19.5; --y:26.5; --w:8.9" src="/assets/generated/onetoone/crops/el05-label-stonehold.png" alt="Stonehold Keep" />
+        <img class="ov pin" style="--x:48.2; --y:25.9; --w:8.9" src="/assets/generated/onetoone/crops/el05-label-bloodspire.png" alt="Bloodspire Fort" />
+        <img class="ov pin" style="--x:35.5; --y:39.1; --w:14.4" src="/assets/generated/onetoone/crops/el05-label-contested.png" alt="Contested" />
+        <img class="ov pin" style="--x:20.3; --y:61.6; --w:8.0" src="/assets/generated/onetoone/crops/el05-label-wildroot.png" alt="Wildroot Hall" />
+        <img class="ov pin" style="--x:49.9; --y:61.2; --w:8.3" src="/assets/generated/onetoone/crops/el05-label-silverveil.png" alt="Silver Veil Guildhall" />
+        <img class="ov pin" style="--x:36.4; --y:72.9; --w:8.3" src="/assets/generated/onetoone/crops/el05-label-guildvault.png" alt="Guild Vault" />
+        <img class="ov pin" style="--x:16.6; --y:36.8; --w:7.1" src="/assets/generated/onetoone/crops/el05-label-goldmine.png" alt="Gold Mine" />
+        <img class="ov pin" style="--x:59.6; --y:35.7; --w:5.9" src="/assets/generated/onetoone/crops/el05-label-ironpit.png" alt="Iron Pit" />
+        <img class="ov pin" style="--x:15.4; --y:72.9; --w:8.0" src="/assets/generated/onetoone/crops/el05-label-woodcutters.png" alt="Woodcutters" />
+        <img class="ov pin" style="--x:53.8; --y:72.9; --w:8.6" src="/assets/generated/onetoone/crops/el05-label-mystic.png" alt="Mystic Crystal" />
+
+        <div class="ov rpanel" style="--x:70.0; --y:9.6; --w:27.7; padding:1.9cqw 1.9cqw" data-reveal>
+          <h2 class="h-serif big t-shadow">GUILDS,<br />TERRITORY<br />&amp; POLITICS</h2>
+          <img src="/assets/generated/onetoone/crops/ui-divider-skull-trim.png" alt="" style="width:60%; margin:1.4cqw 0" />
+          <p class="body-copy">Claim land. Control resources. Forge alliances. Break them. Power flows to those who hold.</p>
+          <div class="frow" style="margin-top:1.6cqw; border:1px solid rgba(212,170,85,.35); background:rgba(8,8,6,.5)">
+            <img src="/assets/generated/onetoone/el-05-icon-vault-trim.png" alt="" />
+            <span><b class="t-gold">GUILD VAULTS</b><p>Pool resources, fund projects, upgrade halls, and prepare for war.</p></span><span class="plus">›</span>
+          </div>
+          <div class="frow" style="margin-top:0.9cqw; border:1px solid rgba(212,170,85,.35); background:rgba(8,8,6,.5)">
+            <img src="/assets/generated/onetoone/el-05-icon-ally-trim.png" alt="" />
+            <span><b class="moss" style="color:#a4d96a">ALLIANCES</b><p>Forge pacts, share access, and coordinate your dominance.</p></span><span class="plus">›</span>
+          </div>
+          <div class="frow" style="margin-top:0.9cqw; border:1px solid rgba(212,170,85,.35); background:rgba(8,8,6,.5)">
+            <img src="/assets/generated/onetoone/el-05-icon-betray-trim.png" alt="" />
+            <span><b class="t-red">BETRAYAL</b><p>Spies, double deals, and backstabs. Trust is a weapon.</p></span><span class="plus">›</span>
+          </div>
+          <div class="frow" style="margin-top:0.9cqw; border:1px solid rgba(212,170,85,.35); background:rgba(8,8,6,.5)">
+            <img src="/assets/generated/onetoone/el-05-icon-war-trim.png" alt="" />
+            <span><b style="color:#6fa8d9">SEASONAL WARS</b><p>Compete across the realm. Glory, relics, and eternal fame.</p></span><span class="plus">›</span>
+          </div>
+        </div>
+
+        <div class="ov ov-h rpanel statusbar" style="--x:14.7; --y:86.9; --w:53; --h:9.9" data-reveal>
+          <div><b>SEASON ZERO<br />TERRITORY WAR</b><strong class="t-red" style="font-size:1.05cqw">LIVE SOON</strong></div>
+          <div><b>NEXT WAR WINDOW</b><strong class="t-red" id="warTimer">03:12:47:22</strong><br /><small>DAYS&nbsp;&nbsp;HRS&nbsp;&nbsp;MINS&nbsp;&nbsp;SECS</small></div>
+          <div><b>TOP GUILD</b><strong class="t-gold">♛ IRON OATH</strong><br /><small>184,250 ☠</small></div>
+          <div><b>CONTESTED ZONES</b><strong class="t-red">⚔ 3</strong></div>
+          <div><b>RESOURCE BONUS</b><strong style="color:#a4d96a">+15%</strong><br /><small>TO CRAFTERS</small></div>
+        </div>
+        <img class="align-ref" loading="lazy" src="/assets/sections/section-05-territory.png" alt="" />
+      </section>
+
+      <!-- ================= S06 · LOOT, RELICS & HOUSING ================= -->
+      <!-- Desktop: flat composed plate. Mobile: native rebuild (.m-scene) from the
+           sliced el-06-* assets so the text/cards are real, readable HTML. -->
+      <section class="stage" id="s06" aria-label="Loot, relics and housing">
+        <img class="stage-bg stage-bg--complete" src="/assets/sections/section-06-loot-housing.png" alt="Loot, relics and housing overview with item cards and player house interior" loading="lazy" />
+
+        <div class="m-scene">
+          <figure class="m-hero">
+            <img src="/assets/generated/onetoone/bg-06-housing.png" alt="A player's candle-lit keep, trophies and relics on the walls" />
+          </figure>
+          <div class="m-body">
+            <p class="m-kicker">Loot · Relics · Housing</p>
+            <h2 class="h-serif m-title">Loot, Relics &amp; Housing</h2>
+            <p class="m-lead">Your best loot becomes your story.</p>
+
+            <ul class="m-feats">
+              <li><img src="/assets/generated/onetoone/el-06-icon-extract.png" alt="" /><div><b>Extract &amp; Collect</b><p>Only survivors bring treasures back. Every item has a tale.</p></div></li>
+              <li><img src="/assets/generated/onetoone/el-06-icon-decorate.png" alt="" /><div><b>Decorate &amp; Claim</b><p>Turn your house into a legend. Show your victories.</p></div></li>
+              <li><img src="/assets/generated/onetoone/el-06-icon-mint.png" alt="" /><div><b>Mint What You Earn</b><p>Loot is minted onchain the moment you extract.</p></div></li>
+              <li><img src="/assets/generated/onetoone/el-06-icon-trade.png" alt="" /><div><b>Trade &amp; Showcase</b><p>Trade in player markets. Flex it in your home.</p></div></li>
+            </ul>
+
+            <p class="m-subhead">Pull from the vault</p>
+            <div class="m-cards">
+              <img src="/assets/generated/onetoone/el-06-card-weapon.png" alt="Emberblade, a legendary weapon" loading="lazy" />
+              <img src="/assets/generated/onetoone/el-06-card-armor.png" alt="Wraith Helm, epic armor" loading="lazy" />
+              <img src="/assets/generated/onetoone/el-06-card-relic.png" alt="Soul Lantern, a mythic relic" loading="lazy" />
+              <img src="/assets/generated/onetoone/el-06-card-cosmetic.png" alt="Ranger's Hat, a cosmetic" loading="lazy" />
+              <img src="/assets/generated/onetoone/el-06-card-banner.png" alt="A house trophy" loading="lazy" />
+              <img src="/assets/generated/onetoone/el-06-card-chest.png" alt="A dungeon entry ticket" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= S07 · LIVING MMO HUB ================= -->
+      <!-- Desktop: flat composed plate + invisible play hotspot. Mobile: native
+           rebuild (.m-scene) from bg-07 + the el-07 feature glyphs. -->
+      <section class="stage" id="s07" aria-label="Living MMO hub">
+        <img class="stage-bg stage-bg--complete" src="/assets/sections/section-07-mmo-hub.png" alt="Living MMO hub town square with labels, NPCs, portals and navigation" loading="lazy" />
+        <a class="ov ov-h rbtn rbtn-red stage-hotspot" style="--x:78.5; --y:85.6; --w:18; --h:8.4; font-size:1.02cqw" href="/game/" aria-label="Walk the hub, play demo"></a>
+
+        <div class="m-scene">
+          <figure class="m-hero">
+            <img src="/assets/generated/onetoone/bg-07-hub.png" alt="The living town square at dusk, lit by lanterns and portals" />
+            <figcaption class="m-hero-tag h-serif">Living MMO Hub</figcaption>
+          </figure>
+          <div class="m-body">
+            <p class="m-lead">Meet, trade, craft, form guilds, decorate your home, queue dungeons, and write your legend together.</p>
+
+            <div class="m-tiles">
+              <div class="m-tile"><img src="/assets/generated/onetoone/el-07-icon-social.png" alt="" /><span>Social</span></div>
+              <div class="m-tile"><img src="/assets/generated/onetoone/el-07-icon-trade.png" alt="" /><span>Trade</span></div>
+              <div class="m-tile"><img src="/assets/generated/onetoone/el-07-icon-craft.png" alt="" /><span>Craft</span></div>
+              <div class="m-tile"><img src="/assets/generated/onetoone/el-07-icon-guilds.png" alt="" /><span>Guilds</span></div>
+              <div class="m-tile"><img src="/assets/generated/onetoone/el-07-icon-dungeons.png" alt="" /><span>Dungeons</span></div>
+              <div class="m-tile"><img src="/assets/generated/onetoone/el-07-icon-housing.png" alt="" /><span>Housing</span></div>
+            </div>
+
+            <a class="rbtn rbtn-red m-cta" href="/game/">🗡 Play the demo</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= S08 · SEASONAL VAULT ================= -->
+      <section class="stage" id="s08" aria-label="Season Zero — seasonal vault">
+        <img class="stage-bg" src="/assets/generated/onetoone/bg-08-vaulthall.png" alt="The seasonal vault and the Season Zero portal in a stone hall" />
+
+        <div class="ov ov-h rpanel" style="--x:1.5; --y:12.4; --w:17.0; --h:30.4" data-reveal>
+          <p class="ptitle">♛ TOP GUILDS</p>
+          <div class="grow"><i>1</i><img src="/assets/generated/onetoone/crops/el08-rank-1.png" alt="" /><span>IRON OATH</span><b>24,580</b><span class="crown">♛</span></div>
+          <div class="grow"><i>2</i><img src="/assets/generated/onetoone/crops/el08-rank-2.png" alt="" /><span>DUSK LEGION</span><b>19,430</b><span class="crown">♛</span></div>
+          <div class="grow"><i>3</i><img src="/assets/generated/onetoone/crops/el08-rank-3.png" alt="" /><span>CRIMSON VEIL</span><b>16,870</b><span class="crown">♛</span></div>
+          <div class="grow"><i>4</i><img src="/assets/generated/onetoone/crops/el08-rank-4.png" alt="" /><span>STONEWARD</span><b>13,240</b><span class="crown">♛</span></div>
+          <div class="grow"><i>5</i><img src="/assets/generated/onetoone/crops/el08-rank-5.png" alt="" /><span>WRAITH WALK</span><b>11,560</b><span class="crown">♛</span></div>
+          <button class="pbtn" type="button">VIEW ALL GUILDS</button>
+        </div>
+
+        <div class="ov ov-h rpanel" style="--x:1.5; --y:49.8; --w:17.0; --h:22.4; padding:1cqw 1.2cqw" data-reveal>
+          <p class="ptitle" style="border:none; padding-top:0">SEASON RESET</p>
+          <div style="display:flex; align-items:center; gap:1cqw; margin-top:.6cqw">
+            <img src="/assets/generated/onetoone/crops/el08-hourglass.png" alt="" style="width:3.4cqw" />
+            <div>
+              <span class="resetbig" id="resetTimer">27D 14H 32M</span><br />
+              <span class="t-mono t-dim" style="font-size:.95cqw; letter-spacing:.1em">UNTIL RESET</span>
+            </div>
+          </div>
+          <p class="t-mono t-dim" style="font-size:.92cqw; letter-spacing:.08em; line-height:1.6; margin-top:1cqw">NEW VAULT. NEW LEGENDS.<br />EVERY SEASON.</p>
+        </div>
+
+        <h2 class="ov h-serif big" style="--x:20.5; --y:19.3; --w:26" data-reveal>SEASON<br />ZERO</h2>
+        <img class="ov" style="--x:24.2; --y:38.6; --w:18.5" src="/assets/generated/onetoone/crops/ui-divider-skull-trim.png" alt="" data-reveal />
+        <p class="ov creed t-shadow" style="--x:22.3; --y:42.6; --w:20" data-reveal>
+          No passive yield.<br />No promises.<br /><span class="gold">Only runs, relics,<br />and reputation.</span>
+        </p>
+        <img class="ov" style="--x:24.2; --y:64.4; --w:18.5" src="/assets/generated/onetoone/crops/ui-divider-skull-trim.png" alt="" data-reveal />
+
+        <div class="ov ov-h rpanel" style="--x:44.2; --y:56.3; --w:13.7; --h:13.0; text-align:center; padding:.8cqw" data-reveal>
+          <span class="t-mono t-gold" style="font-size:1.1cqw; letter-spacing:.14em">SEASONAL VAULT</span><br />
+          <span class="vaultnum"><img src="/assets/generated/onetoone/crops/el08-gem.png" alt="" style="display:inline-block; width:1.6cqw; vertical-align:-0.2cqw" /> <span data-count="842731">0</span></span><br />
+          <span class="t-mono" style="font-size:.95cqw; letter-spacing:.12em; color:var(--bone)">POWERED BY PLAYERS</span>
+        </div>
+
+        <div class="ov ov-h rpanel" style="--x:81.5; --y:17.6; --w:17.1; --h:45" data-reveal>
+          <p class="ptitle">☠ BOSS RECORDS</p>
+          <div class="brow"><span class="sheet-icon sheet-icon--boss" style="--pos:0%" aria-hidden="true"></span><span>NECRON, THE<br />BONE TYRANT</span><b>02:14</b></div>
+          <div class="brow"><span class="sheet-icon sheet-icon--boss" style="--pos:25%" aria-hidden="true"></span><span>EMBERMAW<br />THE DEVOURER</span><b>03:47</b></div>
+          <div class="brow"><span class="sheet-icon sheet-icon--boss" style="--pos:50%" aria-hidden="true"></span><span>XILITH, VOID<br />HARBINGER</span><b>01:58</b></div>
+          <div class="brow"><span class="sheet-icon sheet-icon--boss" style="--pos:75%" aria-hidden="true"></span><span>GLOOMWING<br />THE ROTTED</span><b>02:36</b></div>
+          <div class="brow"><span class="sheet-icon sheet-icon--boss" style="--pos:100%" aria-hidden="true"></span><span>THE COVETOUS<br />KEEPER</span><b>04:21</b></div>
+          <button class="pbtn" type="button">VIEW ALL RECORDS</button>
+        </div>
+
+        <a class="ov ov-h rbtn rbtn-red" style="--x:17.6; --y:84.2; --w:20.4; --h:8.8" href="/game/" data-reveal>🗡 JOIN SEASON ZERO</a>
+        <a class="ov ov-h rbtn rbtn-dark" style="--x:42.3; --y:84.2; --w:17.6; --h:8.8" href="/game/" data-reveal>⚔ PLAY NOW</a>
+        <a class="ov ov-h rbtn rbtn-green" style="--x:63.7; --y:84.2; --w:17.2; --h:8.8" href="#site-footer" data-reveal>✉ FOLLOW UPDATES</a>
+        <img class="align-ref" loading="lazy" src="/assets/sections/section-08-seasonal-vault.png" alt="" />
+      </section>
+    </main>
+
+    <footer class="site-footer" id="site-footer">
+      <p class="fname">☠ Hollowmark ☠</p>
+      <p class="fline">RISK WHAT YOU CARRY. EXTRACT WHAT YOU EARN. SEASON ZERO OPENS THE GRAVE.</p>
+      <p class="ffine">
+        Hollowmark is a fictional skill-based extraction MMORPG reveal. Items are earned through gameplay.
+        Nothing on this site is financial advice, an investment offer, or a promise of returns.
+      </p>
+      <p class="fsocial">
+        <a href="https://github.com/hollowmark-dev/hollowmark" target="_blank" rel="noopener" aria-label="Hollowmark on GitHub">GITHUB</a>
+      </p>
+    </footer>
+  </body>
+</html>

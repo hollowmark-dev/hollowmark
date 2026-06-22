@@ -1,0 +1,67 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "7efc694f-0d37-49ca-96af-b7e3682292bb",
+        "name": "Graveling Skeleton",
+        "prompt": "grim skeletal undead warrior, tattered dark armor, glowing teal eye sockets, holding a rusted sword, grim dark fantasy",
+        "size": {
+          "width": 68,
+          "height": 68
+        },
+        "template_id": "mannequin",
+        "directions": 4,
+        "view": "low top-down",
+        "created_at": "2026-06-20T18:00:14.580291+00:00"
+      },
+      "folder": "Graveling_Skeleton",
+      "frames": {
+        "rotations": {
+          "south": "Graveling_Skeleton/rotations/south.png",
+          "west": "Graveling_Skeleton/rotations/west.png",
+          "east": "Graveling_Skeleton/rotations/east.png",
+          "north": "Graveling_Skeleton/rotations/north.png"
+        },
+        "animations": {
+          "walking": {
+            "west": [
+              "Graveling_Skeleton/animations/walking/west/frame_000.png",
+              "Graveling_Skeleton/animations/walking/west/frame_001.png",
+              "Graveling_Skeleton/animations/walking/west/frame_002.png",
+              "Graveling_Skeleton/animations/walking/west/frame_003.png",
+              "Graveling_Skeleton/animations/walking/west/frame_004.png",
+              "Graveling_Skeleton/animations/walking/west/frame_005.png"
+            ],
+            "east": [
+              "Graveling_Skeleton/animations/walking/east/frame_000.png",
+              "Graveling_Skeleton/animations/walking/east/frame_001.png",
+              "Graveling_Skeleton/animations/walking/east/frame_002.png",
+              "Graveling_Skeleton/animations/walking/east/frame_003.png",
+              "Graveling_Skeleton/animations/walking/east/frame_004.png",
+              "Graveling_Skeleton/animations/walking/east/frame_005.png"
+            ],
+            "south": [
+              "Graveling_Skeleton/animations/walking/south/frame_000.png",
+              "Graveling_Skeleton/animations/walking/south/frame_001.png",
+              "Graveling_Skeleton/animations/walking/south/frame_002.png",
+              "Graveling_Skeleton/animations/walking/south/frame_003.png",
+              "Graveling_Skeleton/animations/walking/south/frame_004.png",
+              "Graveling_Skeleton/animations/walking/south/frame_005.png"
+            ],
+            "north": [
+              "Graveling_Skeleton/animations/walking/north/frame_000.png",
+              "Graveling_Skeleton/animations/walking/north/frame_001.png",
+              "Graveling_Skeleton/animations/walking/north/frame_002.png",
+              "Graveling_Skeleton/animations/walking/north/frame_003.png",
+              "Graveling_Skeleton/animations/walking/north/frame_004.png",
+              "Graveling_Skeleton/animations/walking/north/frame_005.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-20T18:08:01.880302"
+}

@@ -1,0 +1,94 @@
+{
+  "created_at": "2026-06-20T21:59:43Z",
+  "last_updated": "2026-06-20T22:30:00Z",
+  "balance_after_generation": {
+    "used": 34,
+    "remaining": 6,
+    "total": 40
+  },
+  "characters": {
+    "knight": "7f709bb1-cb5a-4474-8282-0370d9f0689d",
+    "ranger": "d9fc3fbe-dfe6-4891-b48b-fcc8b97b673e",
+    "hexer": "c1a7243c-12a6-47fd-a3ee-2e3a75769791",
+    "rogue": "6111cd07-bc62-4222-8300-2be136b13bba"
+  },
+  "animations": [
+    {
+      "class": "knight",
+      "anim": "skill",
+      "animation_id": "aa8027ac-26b1-469e-9dbf-0808515b2b32",
+      "frame_count": 9
+    },
+    {
+      "class": "knight",
+      "anim": "dash",
+      "animation_id": "2e71c344-7883-48e1-a3f6-f9a8458d223c",
+      "frame_count": 5
+    },
+    {
+      "class": "knight",
+      "anim": "attack",
+      "animation_id": "e11124cd-98dd-4c27-8d06-f96b03b276c8",
+      "frame_count": 7
+    },
+    {
+      "class": "ranger",
+      "anim": "skill",
+      "animation_id": "ce1895aa-708c-4eb4-98db-91a70369077f",
+      "frame_count": 9
+    },
+    {
+      "class": "ranger",
+      "anim": "attack",
+      "animation_id": "6db47215-256d-4067-8532-1107904a5310",
+      "frame_count": 7
+    },
+    {
+      "class": "ranger",
+      "anim": "dash",
+      "animation_id": "3c8e7018-8c53-4bd4-9953-38f7a056d318",
+      "frame_count": 5
+    },
+    {
+      "class": "hexer",
+      "anim": "dash",
+      "animation_id": "ed9ede10-1b9a-4595-9f1f-21a649604932",
+      "frame_count": 5
+    },
+    {
+      "class": "hexer",
+      "anim": "attack",
+      "animation_id": "6cb0ace0-869f-4319-99ce-284715709f94",
+      "frame_count": 7
+    },
+    {
+      "class": "hexer",
+      "anim": "skill",
+      "animation_id": "9c2e88c7-2de9-49a5-aa20-1a659c2bdcb5",
+      "frame_count": 9
+    },
+    {
+      "class": "rogue",
+      "anim": "skill",
+      "animation_id": "14f6afd6-3b06-4edf-a7dc-39c383d682c4",
+      "frame_count": 9
+    },
+    {
+      "class": "rogue",
+      "anim": "attack",
+      "animation_id": "29db69e6-ad5b-414e-b979-6f2d3e9b29c3",
+      "frame_count": 5
+    },
+    {
+      "class": "rogue",
+      "anim": "dash",
+      "animation_id": "4791870e-596a-42ba-8dd9-e074966fe773",
+      "frame_count": 5
+    }
+  ],
+  "notes": "Single-direction south only. Engine should horizontal-flip for left/right.",
+  "structure": {
+    "rotations": "rotations/{south,east,north,west}.png",
+    "animations": "animations/{attack,skill,dash}/south/frame_NNN.png"
+  }
+}
